@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>JEITO. | Apresentação para sócios</title>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@600;800&family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{--white:#FFFFFF;--paper:#FBF8F3;--sand:#F3ECE0;--line:#E6DED0;--ink:#14302A;--leaf:#1F5C4D;--mut:#5E6D68;--coral:#EE6A43;--coral-d:#D2522C;--butter:#FFD98A;--mint:#DCEBDD;
+--bg:var(--paper);--surf:var(--white);--alt:var(--sand);--bd:var(--line);--tx:var(--ink);--tx2:var(--mut);--hl:var(--leaf);
+--serif:"Fraunces",Georgia,serif;--sans:"Inter",system-ui,-apple-system,"Segoe UI",sans-serif;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0F1F1B;--surf:#17302A;--alt:#132822;--bd:#2A4A42;--tx:#FBF8F3;--tx2:#9FB3AC;--hl:#8FD1B8}}
+:root[data-theme="dark"]{--bg:#0F1F1B;--surf:#17302A;--alt:#132822;--bd:#2A4A42;--tx:#FBF8F3;--tx2:#9FB3AC;--hl:#8FD1B8}
+*{box-sizing:border-box;margin:0}
+html,body{height:100%;background:var(--bg);color:var(--tx);font-family:var(--sans);scroll-padding-top:env(safe-area-inset-top,0px)}
+.deck{height:100%;overflow-y:auto;scroll-snap-type:y mandatory;scroll-behavior:smooth}
+.slide{min-height:100%;scroll-snap-align:start;display:flex;flex-direction:column;justify-content:center;padding:clamp(28px,6vw,80px) clamp(20px,7vw,110px);position:relative;overflow:hidden}
+.slide.alt{background:var(--alt)}
+.slide.dark{background:var(--ink);color:#fff;--tx:#fff;--tx2:#B9CCC5;--surf:rgba(255,255,255,.08);--bd:rgba(255,255,255,.18);--hl:var(--butter)}
+.tag{display:inline-block;align-self:flex-start;background:var(--butter);color:var(--ink);font-weight:700;font-size:.75rem;letter-spacing:.1em;text-transform:uppercase;padding:6px 12px;border-radius:99px;margin-bottom:18px}
+h1,h2{font-family:var(--serif);font-weight:800;line-height:1.05;letter-spacing:-.02em}
+h1{font-size:clamp(3.4rem,13vw,9rem)}
+h2{font-size:clamp(1.9rem,5vw,3.6rem);max-width:18ch;margin-bottom:18px}
+h2 em,h1 em{font-style:normal;color:var(--coral)}
+p.lead{font-size:clamp(1rem,2vw,1.35rem);color:var(--tx2);max-width:46ch;line-height:1.5}
+.grid{display:grid;gap:14px;margin-top:28px;grid-template-columns:repeat(auto-fit,minmax(200px,1fr))}
+.card{background:var(--surf);border:1px solid var(--bd);border-radius:20px;padding:20px;backdrop-filter:blur(8px)}
+.card h3{font-size:1.05rem;margin-bottom:6px;color:var(--hl)}
+.card p{font-size:.92rem;color:var(--tx2);line-height:1.45}
+.big{font-family:var(--serif);font-size:clamp(2rem,6vw,3.6rem);font-weight:800;color:var(--coral)}
+/* reveal */
+.r{opacity:0;transform:translateY(28px);transition:opacity .7s cubic-bezier(.2,.7,.2,1),transform .7s cubic-bezier(.2,.7,.2,1);transition-delay:calc(var(--d,0)*110ms)}
+.in .r{opacity:1;transform:none}
+/* cover */
+.blob{position:absolute;border-radius:50%;filter:blur(2px);opacity:.9;animation:float 9s ease-in-out infinite}
+.b1{width:min(46vw,420px);aspect-ratio:1;right:-8%;top:8%;background:radial-gradient(circle at 30% 30%,#2f8a73,var(--leaf) 60%,var(--ink))}
+.b2{width:min(18vw,150px);aspect-ratio:1;right:22%;bottom:12%;background:var(--coral);animation-delay:-3s}
+.b3{width:min(10vw,80px);aspect-ratio:1;right:6%;bottom:30%;background:var(--butter);animation-delay:-6s}
+@keyframes float{50%{transform:translateY(-26px) rotate(6deg)}}
+.cover h1 span{color:var(--coral)}
+.by{font-size:1.1rem;color:var(--tx2);margin:6px 0 20px;letter-spacing:.14em;text-transform:uppercase}
+.hint{position:absolute;bottom:22px;left:50%;translate:-50% 0;font-size:.8rem;color:var(--tx2);animation:bob 1.8s infinite}
+@keyframes bob{50%{transform:translateY(8px)}}
+/* plans */
+.plans{display:grid;gap:16px;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));margin-top:26px;max-width:820px}
+.plan{border-radius:24px;padding:26px;background:var(--surf);border:1px solid var(--bd)}
+.plan.pro{background:var(--ink);color:#fff;border-color:var(--ink);box-shadow:0 20px 50px rgba(20,48,42,.25)}
+.plan .price{font-family:var(--serif);font-size:3rem;font-weight:800;color:var(--coral)}
+.plan small{opacity:.7}
+.plan ul{list-style:none;padding:0;margin-top:14px;font-size:.92rem;line-height:1.9}
+.plan li::before{content:"✓ ";color:var(--coral);font-weight:700}
+/* journey */
+.steps{display:flex;flex-wrap:wrap;gap:12px;margin-top:28px;counter-reset:s}
+.step{flex:1 1 130px;background:var(--surf);border:1px solid var(--bd);border-radius:18px;padding:16px;counter-increment:s;position:relative}
+.step::before{content:counter(s,decimal-leading-zero);font-family:var(--serif);font-weight:800;font-size:1.6rem;color:var(--coral);display:block}
+.step b{display:block;font-size:.95rem}
+.step span{font-size:.8rem;color:var(--tx2)}
+/* bars */
+.bars{display:flex;align-items:flex-end;gap:18px;height:230px;margin-top:30px;max-width:520px}
+.bar{flex:1;background:linear-gradient(var(--coral),var(--coral-d));border-radius:14px 14px 0 0;height:0;transition:height 1.2s cubic-bezier(.2,.8,.2,1) .3s;position:relative}
+.in .bar{height:var(--h)}
+.bar b{position:absolute;top:-28px;width:100%;text-align:center;font-size:.95rem}
+.bar i{position:absolute;bottom:-26px;width:100%;text-align:center;font-style:normal;font-size:.78rem;color:var(--tx2)}
+/* palette */
+.pal{display:grid;grid-template-columns:repeat(auto-fill,minmax(110px,1fr));gap:10px;margin-top:26px}
+.sw{border-radius:16px;padding:44px 10px 10px;font-size:.72rem;font-weight:700;border:1px solid var(--line);color:var(--ink);animation:pop .6s both paused;animation-delay:calc(var(--d)*70ms)}
+.in .sw{animation-play-state:running}
+.sw small{display:block;font-weight:500;opacity:.75}
+@keyframes pop{from{opacity:0;transform:scale(.7)}}
+/* roadmap */
+.road{display:grid;gap:14px;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));margin-top:28px;position:relative}
+.ph{background:var(--surf);border:1px solid var(--bd);border-radius:20px;padding:18px}
+.ph em{font-style:normal;font-weight:700;font-size:.72rem;letter-spacing:.1em;color:var(--coral)}
+.ph h3{margin:4px 0 8px}
+.ph li{font-size:.85rem;color:var(--tx2);margin-left:16px;line-height:1.5}
+.chk{list-style:none;padding:0;margin-top:22px;display:grid;gap:10px;max-width:640px}
+.chk li{background:var(--surf);border:1px solid var(--bd);border-radius:14px;padding:12px 16px;font-size:.95rem}
+.chk li::before{content:"☐ ";color:var(--coral)}
+/* nav */
+#prog{position:fixed;top:env(safe-area-inset-top,0px);left:0;height:4px;width:0;background:var(--coral);z-index:20;transition:width .3s}
+#dots{position:fixed;right:12px;top:50%;translate:0 -50%;display:flex;flex-direction:column;gap:9px;z-index:20}
+#dots a{width:9px;height:9px;border-radius:50%;background:var(--tx2);opacity:.35;transition:.3s}
+#dots a.on{opacity:1;background:var(--coral);transform:scale(1.5)}
+@media (max-width:600px){#dots{display:none}}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.r{opacity:1;transform:none}.bar{height:var(--h)}}
+</style>
+</head>
+<body>
+<div id="prog"></div><nav id="dots"></nav>
+<main class="deck" id="deck">
+
+<section class="slide cover dark">
+<div class="blob b1"></div><div class="blob b2"></div><div class="blob b3"></div>
+<span class="tag r" style="--d:0">Apresentação para sócios · Outubro de 2026</span>
+<h1 class="r" style="--d:1">JEITO<span>.</span></h1>
+<p class="by r" style="--d:2">by JOVEMODERNO</p>
+<p class="lead r" style="--d:3">Seu negócio, do seu jeito. Página comercial, agendamento e gestão em um só lugar para pequenos negócios.</p>
+<div class="hint">role ou use ↓ para avançar</div>
+</section>
+
+<section class="slide">
+<span class="tag r">A proposta</span>
+<h2 class="r" style="--d:1">Não é mais um criador de <em>links bonitinhos</em>.</h2>
+<p class="lead r" style="--d:2">Transformamos a presença digital de pequenos negócios em ferramenta de vendas, agendamento e gestão, sem obrigar o cliente final a criar conta.</p>
+<div class="grid">
+<div class="card r" style="--d:3"><h3>Para quem?</h3><p>Pequenos negócios, autônomos e empresas de serviços.</p></div>
+<div class="card r" style="--d:4"><h3>O que vende?</h3><p>Página, catálogo, agenda e painel em um só lugar.</p></div>
+<div class="card r" style="--d:5"><h3>Como ganha?</h3><p>Assinaturas mensais e implantação personalizada opcional.</p></div>
+<div class="card r" style="--d:6"><h3>Como cresce?</h3><p>Prospecção direta, conteúdo, indicações e o próprio site.</p></div>
+</div>
+</section>
+
+<section class="slide alt">
+<span class="tag r">Diferenciais</span>
+<h2 class="r" style="--d:1">Menos ferramentas soltas. Mais <em>experiência profissional</em>.</h2>
+<div class="grid">
+<div class="card r" style="--d:2"><h3>Página pública</h3><p>Personalizada para cada negócio em jeito.app/nomedonegocio.</p></div>
+<div class="card r" style="--d:3"><h3>Catálogo</h3><p>Imagens, descrições, preços e duração dos serviços.</p></div>
+<div class="card r" style="--d:4"><h3>Agenda inteligente</h3><p>Disponibilidade configurável, sem conta para o cliente final.</p></div>
+<div class="card r" style="--d:5"><h3>WhatsApp</h3><p>Botão flutuante para contato direto.</p></div>
+<div class="card r" style="--d:6"><h3>Painel de gestão</h3><p>Preços e horários atualizados sem abrir o editor.</p></div>
+<div class="card r" style="--d:7"><h3>Studio visual</h3><p>Liberdade de personalização dentro de uma estrutura organizada.</p></div>
+</div>
+</section>
+
+<section class="slide">
+<span class="tag r">Estratégia de entrada</span>
+<h2 class="r" style="--d:1">Começar por <em>barbearias e beleza</em>.</h2>
+<p class="lead r" style="--d:2">Serviços variados, preços definidos, agenda por profissional e clientes que já chegam pelo WhatsApp. A demonstração fica muito próxima da realidade de quem compra.</p>
+<div class="grid">
+<div class="card r" style="--d:3"><h3>1 · Barbearias e salões</h3><p>Prioridade inicial.</p></div>
+<div class="card r" style="--d:4"><h3>2 · Profissionais de beleza</h3><p>Manicures, sobrancelhas, autônomos.</p></div>
+<div class="card r" style="--d:5"><h3>3 · Consultores e trainers</h3><p>Apresentação e marcação de sessões.</p></div>
+<div class="card r" style="--d:6"><h3>4 · Negócios locais</h3><p>Assistências, estúdios e oficinas.</p></div>
+</div>
+</section>
+
+<section class="slide dark">
+<span class="tag r">Planos</span>
+<h2 class="r" style="--d:1">Duas portas de entrada, <em>uma lógica escalável</em>.</h2>
+<div class="plans">
+<div class="plan r" style="--d:2;color:var(--ink)"><b>JEITO Inicial</b><div class="price">R$ 19,90<small style="font-size:1rem">/mês</small></div>
+<ul><li>Página pública + catálogo</li><li>Agenda e botão de WhatsApp</li><li>Painel de gerenciamento</li><li>Modelos visuais predefinidos</li></ul></div>
+<div class="plan pro r" style="--d:3"><b>JEITO Pro</b><div class="price">R$ 39,90<small style="font-size:1rem">/mês</small></div>
+<ul><li>Tudo do Inicial</li><li>Página personalizada pela equipe</li><li>Configuração inicial assistida</li><li>Prioridade no suporte</li></ul></div>
+</div>
+<p class="lead r" style="--d:4;margin-top:20px;font-size:.9rem">Implantação Pro opcional: R$ 99 a R$ 199, uma vez (faixa a testar).</p>
+</section>
+
+<section class="slide alt">
+<span class="tag r">Jornada comercial</span>
+<h2 class="r" style="--d:1">Da atração à <em>receita recorrente</em>.</h2>
+<div class="steps">
+<div class="step r" style="--d:2"><b>Atrair</b><span>Conteúdo, prospecção, indicações</span></div>
+<div class="step r" style="--d:3"><b>Converter</b><span>Landing + demonstração real</span></div>
+<div class="step r" style="--d:4"><b>Cadastrar</b><span>Conta e escolha do plano</span></div>
+<div class="step r" style="--d:5"><b>Ativar</b><span>Serviços, agenda, publicação</span></div>
+<div class="step r" style="--d:6"><b>Receber valor</b><span>Primeiros agendamentos</span></div>
+<div class="step r" style="--d:7"><b>Cobrar</b><span>Assinatura mensal</span></div>
+<div class="step r" style="--d:8"><b>Reter</b><span>Suporte, melhorias, upgrade</span></div>
+</div>
+</section>
+
+<section class="slide">
+<span class="tag r">Canais de venda</span>
+<h2 class="r" style="--d:1">Três canais que <em>se complementam</em>.</h2>
+<div class="grid">
+<div class="card r" style="--d:2"><h3>Prospecção direta</h3><p>WhatsApp Business, Instagram e presencial, com abordagem personalizada e demonstração por segmento.</p></div>
+<div class="card r" style="--d:3"><h3>Aquisição pelo site</h3><p>Landing, demonstrações públicas e conteúdo. Cadastro e pagamento sem depender de atendimento.</p></div>
+<div class="card r" style="--d:4"><h3>Indicações e parcerias</h3><p>Clientes satisfeitos, designers e social medias. Comissões só após conhecer a margem real.</p></div>
+</div>
+</section>
+
+<section class="slide alt">
+<span class="tag r">Metas dos primeiros 90 dias</span>
+<h2 class="r" style="--d:1">Provar que pagam, usam e <em>continuam pagando</em>.</h2>
+<div class="bars">
+<div class="bar" style="--h:25%"><b>5–10</b><i>Mês 1</i></div>
+<div class="bar" style="--h:55%"><b>15–25</b><i>Mês 2</i></div>
+<div class="bar" style="--h:100%"><b>30–50</b><i>Mês 3</i></div>
+</div>
+<p class="lead r" style="--d:3;margin-top:44px;font-size:.9rem">Clientes pagantes acumulados. Metas de planejamento, não previsão garantida. Indicador principal: ativação.</p>
+</section>
+
+<section class="slide dark">
+<span class="tag r">Projeção financeira</span>
+<h2 class="r" style="--d:1">Um cenário simples: <em>30 Inicial + 10 Pro</em>.</h2>
+<div class="grid">
+<div class="card r" style="--d:2"><p>Receita mensal bruta</p><div class="big" data-to="996" data-dec="2" data-pre="R$ ">0</div></div>
+<div class="card r" style="--d:3"><p>Assinantes totais</p><div class="big" data-to="40">0</div></div>
+<div class="card r" style="--d:4"><p>Projeção anualizada</p><div class="big" data-to="11952" data-dec="2" data-pre="R$ ">0</div></div>
+</div>
+<p class="lead r" style="--d:5;margin-top:22px;font-size:.9rem">Somente mensalidades, sem implantação, impostos, custos ou cancelamentos. Não representa lucro. O ponto crítico é a margem: o Inicial precisa rodar com muita automação.</p>
+</section>
+
+<section class="slide">
+<span class="tag r">Identidade visual</span>
+<h2 class="r" style="--d:1">Paleta oficial do <em>JEITO.</em></h2>
+<div class="pal">
+<div class="sw" style="--d:1;background:#fff">Branco<small>#FFFFFF</small></div>
+<div class="sw" style="--d:2;background:#FBF8F3">Papel<small>#FBF8F3</small></div>
+<div class="sw" style="--d:3;background:#F3ECE0">Areia<small>#F3ECE0</small></div>
+<div class="sw" style="--d:4;background:#E6DED0">Linha<small>#E6DED0</small></div>
+<div class="sw" style="--d:5;background:#14302A;color:#fff">Verde escuro<small>#14302A</small></div>
+<div class="sw" style="--d:6;background:#1F5C4D;color:#fff">Verde-floresta<small>#1F5C4D</small></div>
+<div class="sw" style="--d:7;background:#5E6D68;color:#fff">Cinza esverdeado<small>#5E6D68</small></div>
+<div class="sw" style="--d:8;background:#EE6A43;color:#14302A">Terracota<small>#EE6A43</small></div>
+<div class="sw" style="--d:9;background:#D2522C;color:#fff">Terracota escuro<small>#D2522C</small></div>
+<div class="sw" style="--d:10;background:#FFD98A">Amarelo manteiga<small>#FFD98A</small></div>
+<div class="sw" style="--d:11;background:#DCEBDD">Verde menta<small>#DCEBDD</small></div>
+</div>
+<p class="lead r" style="--d:6;margin-top:22px;font-size:.9rem">A marca mantém a paleta em toda a comunicação institucional. Os clientes personalizam as cores das próprias páginas.</p>
+</section>
+
+<section class="slide alt">
+<span class="tag r">Plano de execução</span>
+<h2 class="r" style="--d:1">Quatro fases, <em>uma de cada vez</em>.</h2>
+<div class="road">
+<div class="ph r" style="--d:2"><em>FASE 1</em><h3>Fundação</h3><ul><li>Limites dos planos</li><li>Landing, preços, demo</li><li>Termos e cobrança</li></ul></div>
+<div class="ph r" style="--d:3"><em>FASE 2</em><h3>Validação</h3><ul><li>Prospectar beleza</li><li>Demonstrações</li><li>Corrigir antes de anunciar</li></ul></div>
+<div class="ph r" style="--d:4"><em>FASE 3</em><h3>Repetição</h3><ul><li>Estudos de caso</li><li>Onboarding automatizado</li><li>Medir conversão e churn</li></ul></div>
+<div class="ph r" style="--d:5"><em>FASE 4</em><h3>Escala</h3><ul><li>Novos segmentos</li><li>Parcerias e anúncios</li><li>Contratar com receita</li></ul></div>
+</div>
+</section>
+
+<section class="slide dark">
+<span class="tag r">Decisões para o lançamento</span>
+<h2 class="r" style="--d:1">O que precisamos <em>decidir juntos</em>.</h2>
+<ul class="chk">
+<li class="r" style="--d:2">O que o plano Inicial inclui exatamente</li>
+<li class="r" style="--d:3">Taxa, prazo e revisões da implantação Pro</li>
+<li class="r" style="--d:4">Regras de domínio: registro, renovação e titularidade</li>
+<li class="r" style="--d:5">Pagamentos e cancelamentos confiáveis</li>
+<li class="r" style="--d:6">Segurança e privacidade (LGPD)</li>
+<li class="r" style="--d:7">Demonstrações reais para os segmentos iniciais</li>
+<li class="r" style="--d:8">Processo de suporte realista</li>
+</ul>
+<p class="lead r" style="--d:9;margin-top:22px;font-size:1rem">Prioridade: validar com os primeiros clientes pagantes antes de investir em marketing.</p>
+</section>
+
+</main>
+<script>
+(function(){
+var deck=document.getElementById('deck'),slides=[].slice.call(deck.querySelectorAll('.slide')),dots=document.getElementById('dots'),prog=document.getElementById('prog');
+slides.forEach(function(s,i){var a=document.createElement('a');a.href='#s'+(i+1);a.onclick=function(e){e.preventDefault();s.scrollIntoView()};dots.appendChild(a)});
+function count(el){var to=+el.dataset.to,dec=+(el.dataset.dec||0),pre=el.dataset.pre||'',t0=null;
+function f(t){t0=t0||t;var p=Math.min((t-t0)/1400,1),v=to*(1-Math.pow(1-p,3));
+el.textContent=pre+v.toLocaleString('pt-BR',{minimumFractionDigits:dec,maximumFractionDigits:dec});if(p<1)requestAnimationFrame(f)}requestAnimationFrame(f)}
+var io=new IntersectionObserver(function(es){es.forEach(function(e){
+if(e.isIntersecting){e.target.classList.add('in');var i=slides.indexOf(e.target);
+[].forEach.call(dots.children,function(d,j){d.classList.toggle('on',i===j)});
+prog.style.width=((i+1)/slides.length*100)+'%';
+if(!e.target.dataset.c){e.target.dataset.c=1;[].forEach.call(e.target.querySelectorAll('[data-to]'),count)}}})},{root:deck,threshold:.55});
+slides.forEach(function(s){io.observe(s)});
+document.addEventListener('keydown',function(e){var i=Math.round(deck.scrollTop/deck.clientHeight);
+if(['ArrowDown','ArrowRight','PageDown',' '].indexOf(e.key)>-1){e.preventDefault();(slides[i+1]||slides[i]).scrollIntoView()}
+if(['ArrowUp','ArrowLeft','PageUp'].indexOf(e.key)>-1){e.preventDefault();(slides[i-1]||slides[i]).scrollIntoView()}});
+})();
+</script>
+</body>
+</html>
